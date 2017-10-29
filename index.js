@@ -20,6 +20,34 @@ app.use(
     })
 );
 
+const catData = {
+     imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
+     name: "Fluffy",
+     gender: 'Female',
+     age: "2 yrs",
+     breed: "Bengal",
+     story: "Thrown on the street"
+     }
+
+const dogData = {
+     imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
+     name: "Champ",
+     gender: 'Male',
+     age: "3 yrs",
+     breed: "Mutt",
+     story: "Rescued"
+     }
+
+app.get('/api/cat', (req, res) => {
+ res.json(catData)
+
+});
+
+app.get('/api/dog', (req, res) => {
+ res.json(dogData)
+
+});
+
 function runServer(port = PORT) {
     const server = app
         .listen(port, () => {
@@ -32,7 +60,7 @@ function runServer(port = PORT) {
 }
 
 if (require.main === module) {
-    dbConnect();
+    //dbConnect();
     runServer();
 }
 
